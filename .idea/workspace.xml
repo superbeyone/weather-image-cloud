@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9caac7ca-a94e-4ea8-b6b6-25530d307d7e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/superbyone/WeatherApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/superbyone/config/ImgCutRange.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/superbyone/config/MailConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/superbyone/config/WeatherConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/superbyone/job/WeatherJob.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/superbyone/utils/WeatherUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +153,7 @@
       <workItem from="1708760631414" duration="17837000" />
       <workItem from="1708778593092" duration="2771000" />
       <workItem from="1708781395795" duration="1015000" />
-      <workItem from="1708782882032" duration="1784000" />
+      <workItem from="1708782882032" duration="2423000" />
     </task>
     <servers />
   </component>
