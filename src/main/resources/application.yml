@@ -2,7 +2,7 @@ server:
   port: 10086
 
 weather: 
-  cron: '0 0/2 * * * ?' #定时执行，示例：每30分钟执行一次
+  cron: '0 0/30 * * * ?' #定时执行，示例：每30分钟执行一次
   base-url: http://www.nmc.cn/publish/precipitation/1-day.html #要爬取的网页
   save-root-path: /home/weather/img #图片存储路径
   url-class-name: .container .row .col-xs-10 .bgwhite .p-wrap .p-nav.nav2 ul li a #html 中的页面标签，请确认后再修改
@@ -21,5 +21,5 @@ mail: #抓取失败时，发送邮件通知
   from: test@qq.com #发送者
   pass: 授权信息 #授权信息
   tos: # 接收者
-    - superbeyone@outlook.com
+    - xxx@qq.com
 
