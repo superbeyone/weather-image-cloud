@@ -72,7 +72,7 @@ public class WeatherJob implements InitializingBean {
             String imgRootPath = rootPath + File.separator + "image";
             boolean needCut = weatherConfig.getImgCutRange().isNeedCut();
             //保存裁剪的图片
-            String cutRootPath = rootPath + File.separator + "cutImage";
+            String cutRootPath = rootPath + File.separator + "cropImage";
             if (needCut) {
                 new File(cutRootPath).mkdirs();
             }

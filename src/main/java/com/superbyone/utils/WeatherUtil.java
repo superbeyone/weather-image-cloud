@@ -74,18 +74,26 @@ public class WeatherUtil {
         String fileNameStr = StringUtils.substringAfterLast(imgUrl, "/");
         String fileName = StringUtils.substringBefore(fileNameStr, "?");
         log.info("saveImage fileName: {}, imgUrl {}", fileName, imgUrl);
+        File file = null;
+        try {
+            String name = StringUtils.substring(StringUtils.substringAfterLast(fileName, "_"), 0, 8);
+            String year = StringUtils.substring(name, 0, 4);
+            String month = StringUtils.substring(name, 4, 6);
+            String day = StringUtils.substring(name, 6, 8);
+            File root = new File(rootPath, year + File.separator + month + File.separator + day);
+            if (!root.exists()) {
+                root.mkdirs();
+            }
+            file = new File(root, fileName);
 
-        String year = StringUtils.substringBetween(imgUrl, "product/", "/");
-        File root = new File(rootPath, year);
-        if (!root.exists()) {
-            root.mkdirs();
+            if (file.exists()) {
+                log.info("{} 文件已存在，url {}", fileName, imgUrl);
+                return null;
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("存储图片[ <a target='_blank' href ='" + imgUrl + "'>" + fileName + "</a> ]失败，<br/>图片地址: [ " + imgUrl + " ]");
         }
-        File file = new File(root, fileName);
-
-        if (file.exists()) {
-            log.info("{} 文件已存在，url {}", fileName, imgUrl);
-            return null;
-        }
+        
         byte[] buffer = new byte[4096];
         int bytesRead;
         try (BufferedOutputStream outputStream = new BufferedOutputStream(Files.newOutputStream(file.toPath()))) {
@@ -111,6 +119,6 @@ public class WeatherUtil {
         }
         ImgUtil.cut(srcImage, destImage, rectangle);
     }
-    
+
 
 }
