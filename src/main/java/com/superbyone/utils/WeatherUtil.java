@@ -1,7 +1,7 @@
 package com.superbyone.utils;
 
 import cn.hutool.core.img.ImgUtil;
-import com.superbyone.config.ImgCutRange;
+import com.superbyone.config.ImgCropRange;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.jsoup.Jsoup;
@@ -29,8 +29,6 @@ import java.util.List;
 @Slf4j
 public class WeatherUtil {
 
-//    private static final String A_HREF_CLASS_NAME = ".container .row .col-xs-10 .bgwhite .p-wrap .p-nav.nav2 ul li a";
-//    private static final String IMG_CLASS_NAME = "#imgpath";
 
     public static List<String> getPageUrlList(String baseUrl, String urlClassName) {
         List<String> urlList = new ArrayList<>();
@@ -111,7 +109,7 @@ public class WeatherUtil {
         return file;
     }
 
-    public static void cutImage(File srcImage, File destImage, ImgCutRange imageCutRange) {
+    public static void cutImage(File srcImage, File destImage, ImgCropRange imageCutRange) {
         Rectangle rectangle = new Rectangle(imageCutRange.getX(), imageCutRange.getY(), imageCutRange.getWidth(), imageCutRange.getHeight());
         File parentFile = destImage.getParentFile();
         if (!parentFile.exists()) {

@@ -69,11 +69,11 @@ public class WeatherJob implements InitializingBean {
             String rootPath = weatherConfig.getSaveRootPath();
 
             //保存抓取的图片
-            String imgRootPath = rootPath + File.separator + "image";
-            boolean needCut = weatherConfig.getImgCutRange().isNeedCut();
+            String imgRootPath = rootPath + File.separator + weatherConfig.getImgDir();
+            boolean needCrop = weatherConfig.getImgCropRange().isNeedCrop();
             //保存裁剪的图片
-            String cutRootPath = rootPath + File.separator + "cropImage";
-            if (needCut) {
+            String cutRootPath = rootPath + File.separator + weatherConfig.getImgCropDir();
+            if (needCrop) {
                 new File(cutRootPath).mkdirs();
             }
             new File(imgRootPath).mkdirs();
@@ -100,10 +100,10 @@ public class WeatherJob implements InitializingBean {
                     try {
                         //存储的图片文件 (已将图片保存到本地)
                         File srcImageFile = WeatherUtil.saveImage(imgRootPath, imgUrl);
-                        if (srcImageFile != null && needCut) {
+                        if (srcImageFile != null && needCrop) {
                             //裁剪图片数据
                             String cutFile = StringUtils.replace(srcImageFile.getAbsolutePath(), imgRootPath, cutRootPath);
-                            WeatherUtil.cutImage(srcImageFile, new File(cutFile), weatherConfig.getImgCutRange());
+                            WeatherUtil.cutImage(srcImageFile, new File(cutFile), weatherConfig.getImgCropRange());
                         }
                     } catch (Exception e) {
                         log.error("save image error ", e);

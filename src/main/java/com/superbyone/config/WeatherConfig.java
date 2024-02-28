@@ -25,7 +25,10 @@ public class WeatherConfig {
 
     private String urlClassName;
     private String imgIdName;
-    private ImgCutRange imgCutRange;
+    private ImgCropRange imgCropRange;
+
+    private String imgDir = "image";
+    private String imgCropDir = "cropImage";
 
 
     public String getImgIdName() {

@@ -13,9 +13,9 @@ import lombok.ToString;
 
 @Data
 @ToString
-public class ImgCutRange {
+public class ImgCropRange {
 
-    private boolean needCut = true;
+    private boolean needCrop = true;
     private int x;
 
     private int y;
