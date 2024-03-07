@@ -4,7 +4,7 @@ server:
 weather: 
   cron: '0 0/30 * * * ?' #定时执行，示例：每30分钟执行一次
   base-url: http://www.nmc.cn/publish/precipitation/1-day.html #要爬取的网页
-  save-root-path: D:\test\precipitation #图片存储路径
+  save-root-path: D:\0-package\weather-image\precipitation #图片存储路径
   url-class-name: .container .row .col-xs-10 .bgwhite .p-wrap .p-nav.nav2 ul li a #html 中的页面标签，请确认后再修改
   img-id-name: imgpath #html 中的图片id，请确认后再修改
   img-dir: image
@@ -20,8 +20,8 @@ mail: #抓取失败时，发送邮件通知
   sslEnable: false
   host: smtp.qq.com
   socketFactoryPort: 587 #发送邮件服务器： smtp.qq.com，使用SSL，端口号465或587
-  from: test@qq.com #发送者
-  pass: test #授权信息
+  from: 1397107185@qq.com #发送者
+  pass: czxcvwohkcxmijbi #授权信息
   tos: # 接收者
-    - test@outlook.com
+    - superbeyone@outlook.com
 
