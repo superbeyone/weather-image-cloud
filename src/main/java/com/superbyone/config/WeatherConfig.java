@@ -27,6 +27,8 @@ public class WeatherConfig {
     private String imgIdName;
     private ImgCropRange imgCropRange;
 
+    private MiddleRange middleRange;
+
     private String imgDir = "image";
     private String imgCropDir = "cropImage";
 

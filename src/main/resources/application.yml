@@ -7,6 +7,10 @@ weather:
   save-root-path: D:\0-package\weather-image\precipitation #图片存储路径
   url-class-name: .container .row .col-xs-10 .bgwhite .p-wrap .p-nav.nav2 ul li a #html 中的页面标签，请确认后再修改
   img-id-name: imgpath #html 中的图片id，请确认后再修改
+  middle-range: 
+    url: http://www.nmc.cn/publish/bulletin/mid-range.htm
+    middle-class-name: '.container .row .col-xs-10 .bgwhite #text .writing .wza'
+    file-name: middle_range_image.png
   img-dir: image
   img-crop-dir: cropImage
   img-crop-range: 
@@ -21,7 +25,8 @@ mail: #抓取失败时，发送邮件通知
   host: smtp.qq.com
   socketFactoryPort: 587 #发送邮件服务器： smtp.qq.com，使用SSL，端口号465或587
   from: 1397107185@qq.com #发送者
-  pass: czxcvwohkcxmijbi #授权信息
+  pass: aaa #授权信息
   tos: # 接收者
-    - superbeyone@outlook.com
+    - aaaa@outlook.com
+
 

@@ -76,11 +76,19 @@ public class WeatherJob implements InitializingBean {
             if (needCrop) {
                 new File(cutRootPath).mkdirs();
             }
-            new File(imgRootPath).mkdirs();
+            File imgRootFile = new File(imgRootPath);
+            imgRootFile.mkdirs();
 
             StringJoiner contentBuilder = new StringJoiner("<br/> <br/> <hr/>");
-
             boolean isFailed = false;
+
+            try {
+                WeatherUtil.saveMiddleRangeImage(weatherConfig.getMiddleRange(), imgRootFile);
+            } catch (Exception e) {
+                log.error("抓取middle-range 失败", e);
+                isFailed = true;
+                contentBuilder.add("抓取 <a target='_blank' href ='"+weatherConfig.getMiddleRange().getUrl()+"'> "+"中期天气预报图片</a> 失败，地址 [ "+ weatherConfig.getMiddleRange().getUrl()+" ]");
+            }
 
             Random random = new Random();
 

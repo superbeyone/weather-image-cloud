@@ -39,14 +39,33 @@ public class WeatherServiceImpl implements WeatherService {
         String year = dateArray[0];
         String month = dateArray[1];
         String day = dateArray[2];
-        return getImageListByDate(year, month, day);
-    }
-
-
-    private List<ImageVo> getImageListByDate(String year, String month, String day) {
 
         File imageRootDir = new File(weatherConfig.getSaveRootPath(), weatherConfig.getImgDir());
         File dayImageDir = new File(imageRootDir, year + File.separator + month + File.separator + day);
+
+        List<ImageVo> imageList = getImageListByDate(dayImageDir);
+        ImageVo middleRangeImage = getMiddleRangeImage(dayImageDir);
+        if (middleRangeImage != null) {
+            imageList.add(middleRangeImage);
+        }
+        return imageList;
+    }
+
+    private ImageVo getMiddleRangeImage(File dayImageDir) {
+        String fileName = weatherConfig.getMiddleRange().getFileName();
+        File imageFile = new File(dayImageDir, fileName);
+        if (imageFile.exists()) {
+            ImageVo imageVo = new ImageVo();
+            imageVo.setHour(StringUtils.substringBefore(fileName, "."));
+            imageVo.setFileName(fileName);
+            return imageVo;
+        }
+        return null;
+    }
+
+
+    private List<ImageVo> getImageListByDate(File dayImageDir) {
+
 
         Map<Long, FileNameVo> fileNameMap = new TreeMap<>();
         if (dayImageDir.isDirectory() && dayImageDir.exists()) {
@@ -57,6 +76,9 @@ public class WeatherServiceImpl implements WeatherService {
 
                 //文件全名
                 String fileName = file.getName();
+                if(StringUtils.equals(fileName,weatherConfig.getMiddleRange().getFileName())){
+                    continue;
+                }
                 //去除文件后缀,只有最后的日期字符串的文件名
                 String name = StringUtils.substring(fileName, fileName.lastIndexOf("_") + 1, fileName.lastIndexOf("."));
                 //截取文件名最后5位
