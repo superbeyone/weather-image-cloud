@@ -22,5 +22,7 @@ public class ImageVo implements Serializable {
     private String hour;
 
     private String fileName;
+
+    private String path;
     
 }

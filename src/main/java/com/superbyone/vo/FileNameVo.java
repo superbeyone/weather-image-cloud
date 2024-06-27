@@ -18,4 +18,6 @@ public class FileNameVo implements Serializable {
     private Long name;
 
     private String fileName;
+
+    private String path;
 }

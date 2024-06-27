@@ -11,7 +11,8 @@ import com.superbyone.config.WeatherConfig;
 import com.superbyone.utils.WeatherUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.InitializingBean;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
@@ -33,7 +34,7 @@ import java.util.StringJoiner;
 
 @Slf4j
 @Component
-public class WeatherJob implements InitializingBean {
+public class WeatherJob implements ApplicationRunner {
 
     @Resource
     WeatherConfig weatherConfig;
@@ -42,7 +43,8 @@ public class WeatherJob implements InitializingBean {
     MailConfig mailConfig;
 
     @Override
-    public void afterPropertiesSet() throws Exception {
+    public void run(ApplicationArguments args) throws Exception {
+        
         MailAccount mailAccount = initMailAccount();
         //启动时，先调用一次
         doJob(mailAccount);
