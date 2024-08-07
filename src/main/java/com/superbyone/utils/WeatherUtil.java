@@ -161,7 +161,7 @@ public class WeatherUtil {
             }
             file = new File(root, fileName);
 
-            if (file.exists()) {
+            if (file.exists() && file.length() > 0) {
                 log.info("{} 文件已存在，url {}", fileName, imgUrl);
                 return null;
             }
